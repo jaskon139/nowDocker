@@ -5,7 +5,7 @@
 cd /app
 chmod +x /app/shadowsocks-server-linux64-1.1.5
 resultip=$(ifconfig eth0 |grep "inet addr"| cut -f 2 -d ":"|cut -f 1 -d " ")
-./client_s -t 127.0.0.1:8388 -l :3824 --mode fast2&
+./client_s -t 127.0.0.1:10000 -l :3824 --mode fast2&
 ./kcptunserver 10.241.62.73 9999 $resultip $resultip 3824&
 #./shadowsocks-server-linux64-1.1.5 -c config.json &
 /app/gotty --address 127.0.0.1 --port 8080 --permit-write --reconnect /bin/sh &
