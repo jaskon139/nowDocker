@@ -12,7 +12,7 @@
       ]
     },
     "streamSettings": {
-      "network": "wss",
+      "network": "ws",
       "wsSettings": {
       "path": "/ray"
       }
