@@ -10,12 +10,6 @@
           "alterId": 64
         }
       ]
-    },
-    "streamSettings": {
-      "network": "ws",
-      "wsSettings": {
-      "path": "/ray"
-      }
     }
   },
   "outbound": {
