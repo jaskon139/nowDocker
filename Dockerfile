@@ -1,7 +1,8 @@
-FROM frolvlad/alpine-glibc
-RUN apk update
-RUN apk add --no-cache libstdc++
-RUN apk add --no-cache nodejs npm ca-certificates
+#FROM frolvlad/alpine-glibc
+FROM ubuntu:xenial
+#RUN apk update
+#RUN apk add --no-cache libstdc++
+#RUN apk add --no-cache nodejs npm ca-certificates
 RUN mkdir /app
 WORKDIR /app
 ADD . /app

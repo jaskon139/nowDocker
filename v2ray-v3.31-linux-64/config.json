@@ -1,19 +1,59 @@
 {
   "inbound": {
     "port": 10000,
-    "listen":"127.0.0.1",//只监听 127.0.0.1，避免除本机外的机器探测到开放了 10000 端口
+    "listen":"127.0.0.1",
     "protocol": "vmess",
     "settings": {
       "clients": [
         {
-          "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+          "id": "c196ecf7-3737-41ae-91ea-b0b98e1e122c",
           "alterId": 64
         }
       ]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+      "path": "/ray"
+      }
     }
   },
   "outbound": {
     "protocol": "freedom",
     "settings": {}
+  },
+  "outboundDetour": [
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "strategy": "rules",
+    "settings": {
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "0.0.0.0/8",
+            "10.0.0.0/8",
+            "100.64.0.0/10",
+            "169.254.0.0/16",
+            "172.16.0.0/12",
+            "192.0.0.0/24",
+            "192.0.2.0/24",
+            "192.168.0.0/16",
+            "198.18.0.0/15",
+            "198.51.100.0/24",
+            "203.0.113.0/24",
+            "::1/128",
+            "fc00::/7",
+            "fe80::/10"
+          ],
+          "outboundTag": "blocked"
+        }
+      ]
+    }
   }
 }
