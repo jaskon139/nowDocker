@@ -10,9 +10,9 @@ resultip=$(echo $ssss1 |cut -f 1 -d " ")
 #resultip=$(ifconfig eth0 |grep "inet addr"| cut -f 2 -d ":"|cut -f 1 -d " ")
 ./client_s -t 127.0.0.1:10000 -l :3824 --mode fast2 > /dev/null 2>&1 &
 ./kcptunserver 10.241.62.73 9999 $resultip $resultip 3824  &
-#./shadowsocks-server-linux64-1.1.5 -c config.json  > /dev/null &
-/app/gotty --address 127.0.0.1 --port 8980 --permit-write --reconnect /bin/sh > /etc/null &
-/app/v2ray-v3.31-linux-64/v2ray -config /app/v2ray-v3.31-linux-64/config.json  > /dev/null &
+./shadowsocks-server-linux64-1.1.5 -c config.json  > /dev/null &
+/app/gotty --port 8080 --permit-write --reconnect /bin/sh > /etc/null &
+#/app/v2ray-v3.31-linux-64/v2ray -config /app/v2ray-v3.31-linux-64/config.json  > /dev/null &
 #node server.js http://127.0.0.1:10000
-/app/chisel_linux_amd64 server --port 8080  --socks5 > /dev/null
+#/app/chisel_linux_amd64 server --port 8080  --socks5 > /dev/null
 #cd /opt/wetty && /usr/bin/node app.js -p $PORT
